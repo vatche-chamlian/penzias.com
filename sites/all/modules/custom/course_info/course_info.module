@@ -1,0 +1,162 @@
+<?php
+
+function course_info_menu(){
+    $items['admin/config/system/course-config'] = array(
+        'title' => 'Course Information',
+        'page callback' => 'drupal_get_form',
+        'page arguments' => array('course_info_config_form'),
+        'access arguments' => array('administer course configuration'),
+        'access callback' => TRUE,
+        'type' => MENU_NORMAL_ITEM,
+        'file' => 'course_info.admin.inc',
+    );
+    return $items;
+}
+
+/**
+ * Implements hook_block_info().
+ */
+function course_info_block_info() {
+  $blocks = array();
+  $blocks['course_header'] = array(
+    'info' => t('Course Header'),
+  );
+  $blocks['course_brochure'] = array(
+    'info' => t('Course Brochure'),  
+  );
+ 
+  return $blocks;
+}
+
+function course_info_block_view($delta='') {
+  $block = array();
+ 
+  switch($delta) {
+    case 'course_header' :
+      $block['content'] = header_information();
+      break;
+    case 'course_brochure' :
+      $block['content'] = brochure_information();
+      break;
+  }
+ 
+  return $block;
+}
+
+function header_information() {
+  $block = array();
+ 
+  // Get course information
+  $course_prefix = variable_get('course_prefix','');
+  $course_name = variable_get('course_name', '');
+  $course_slogan = variable_get('course_slogan','');
+  $course_venue = variable_get('course_venue_name','');
+  $course_city = variable_get('course_city','');
+  $course_state = variable_get('course_state','');
+  
+  // Get and process course date values
+  $course_start = variable_get('course_start_date','');
+  $course_start_full = mktime(0, 0, 0, $course_start['month'], $course_start['day'], $course_start['year']);
+  $course_end = variable_get('course_end_date','');
+  $course_end_full = mktime(0, 0, 0, $course_end['month'], $course_end['day'], $course_end['year']);
+  $course_date_output = date('M j', $course_start_full) . ' - ' . date('j, Y', $course_end_full);
+  
+  //Create header output/markup
+  $header = '';
+  
+  if(!empty($course_prefix)){
+    $header .= '<p class="course-prefix">' . $course_prefix . '</p>';
+  }
+  if(!empty($course_name)){
+    $header .= '<p class="course-name"><a href="/" title="Home" alt="Home">' . $course_name . '</a></p>';
+  }
+  if(!empty($course_slogan)){
+    $header .= '<p class="course-slogan">' . $course_slogan . '</p>';
+  }
+  if(!empty($course_venue) || !empty($course_date_output)){
+      
+    $header .= '<p class="course-venue-date">';
+    
+    if (!empty($course_venue) && !empty($course_date_output)){
+        $header .= $course_venue . ' • ' . $course_date_output;
+    }
+    else if(!empty($course_venue)){
+        $header .= $course_venue;
+    }
+    else if(!empty($course_date_output)){
+        $header .= $course_date_output;
+    }
+
+    $header .= '</p>';
+  }
+  if(!empty($course_city) && !empty($course_state)){
+    $header .= '<p class="course-city-state">' . $course_city . ', ' . $course_state . '</p>';
+  }
+ 
+  // Block output in HTML with div wrapper
+  $block = array(
+    'header' => array(
+      '#prefix' => '<div class="header-block">',
+      '#type' => 'markup',
+      '#markup' => $header,
+      '#suffix' => '</div>',
+    ),
+  );
+ 
+  return $block;
+}
+
+function brochure_information(){
+    
+    $block = array();
+    $content = '';
+    
+    //Course Sold Out
+    
+    $sold_out = variable_get('course_sold_out');
+    
+    //Early Bird Special
+   
+    // Get and process course date values
+    $earlybird_start = variable_get('earlybird_start_date','');
+    $earlybird_start_full = mktime(0, 0, 0, $earlybird_start['month'], $earlybird_start['day'], $earlybird_start['year']);
+    $earlybird_end = variable_get('earlybird_end_date','');
+    $earlybird_end_full = mktime(0, 0, 0, $earlybird_end['month'], $earlybird_end['day'], $earlybird_end['year']);
+    $earlybird_deadline_output = date('F j, Y', $earlybird_end_full);
+    $current_time = mktime(0, 0, 0, date('m'), date('d'), date('Y'));
+    
+    if($sold_out){
+        $content .='<div class="earlybird sold-out">Sold Out</div>';
+    }
+    else if (($current_time >= $earlybird_start_full) && ($current_time <= $earlybird_end_full)){ 
+        $content .='<div class="earlybird earlybird-register">Register by ' . $earlybird_deadline_output . ' for discounted pricing.</div>';
+    }
+    else if($current_time > $earlybird_end_full){
+        $content .='<div class="earlybird earlybird-expired">Register Now.</div>';
+    }
+    
+            
+    //Get the brochure file fid
+    $brochure_file = variable_get('brochure_fid','');
+    
+    if(!empty($brochure_file)){
+        $brochure_package = file_load($brochure_file);
+        $brochure_path = file_create_url($brochure_package->uri);
+        $content .= '<div class="brochure-download"><a href="' . $brochure_path . '" target="_blank">Download course brochure</a></div>';
+    }
+    
+    $content .= '<div class="contact-link"><a href="/contact">Join our email list</a></div>';
+    
+    
+    // Block output in HTML with div wrapper
+    $block = array(
+      'header' => array(
+        '#prefix' => '<div class="brochure-block">',
+        '#type' => 'markup',
+        '#markup' => $content,
+        '#suffix' => '</div>',
+      ),
+    );
+    
+    return $block;
+}

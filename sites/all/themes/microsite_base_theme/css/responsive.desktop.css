@@ -1,0 +1,18 @@
+/*
+ *   Important Information about this CSS File
+ *
+ * - Do not delete or rename this file, if you do not use it leave it blank (delete
+ *   everything) and the file will be skipped when you enable Production Mode in
+ *   the Global theme settings.
+ *
+ * - Read the _README file in this directory, it contains useful help and other information.
+ */
+
+/* this is done through drupal but just incase we need it later
+@media only screen and (min-width: 1025px) {
+  .two-sidebars .content-inner {margin-left: 23%; margin-right: 23%}
+  .sidebar-first .content-inner {margin-left: 23%; margin-right: 0}
+  .sidebar-second .content-inner {margin-right: 23%; margin-left: 0}
+  .region-sidebar-first {width: 23%; margin-left: -100%}
+  .region-sidebar-second {width: 23%; margin-left: -23%}
+}*/

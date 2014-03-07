@@ -1,0 +1,33 @@
+/*
+ *   Important Information about this CSS File
+ *
+ * - Do not delete or rename this file, if you do not use it leave it blank (delete
+ *   everything) and the file will be skipped when you enable Production Mode in
+ *   the Global theme settings.
+ *
+ * - Read the _README file in this directory, it contains useful help and other information.
+ */
+/* Increase the body font size on small devices */
+html {
+  font-size: 112.5%;
+}
+
+.header-block {
+  padding-right:0;
+  padding-bottom:60px;
+  background-position: center bottom;
+}
+
+.header-block p.course-name {
+  font-size: 24px;
+  line-height: 30px;
+}
+
+.header-block .course-venue-date {
+  font-size: 20px;
+  line-height: 1.2em;
+}
+
+/*.nav ul.menu li.registration-information a {
+  padding:0 5px;
+}*/

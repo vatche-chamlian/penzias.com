@@ -1,0 +1,4 @@
+name = Course Information
+description = Creates course specific site configuration page.  This will contain fields associated with course headers.
+core = 7.x
+package = Penzias

@@ -1,0 +1,6 @@
+<?php
+
+function course_info_install() {
+  $mydir = 'public://course-info/'; 
+  file_prepare_directory($mydir, FILE_CREATE_DIRECTORY);
+}
