@@ -53,94 +53,43 @@ nav.menu-wrapper {
   margin:0;
 }
 
-.menu {
+#menu-bar .menu {
   background:#ddd9c2;
 }
 
-.menu li {
+#menu-bar .menu li {
   background:#ddd9c2;
   border-right:1px solid #FFF;
   line-height: 40px;
-  width:16.5%;
   text-align:center;
 }
 
-.menu li.last {
+#menu-bar .menu li.last {
   border-right:none;
 }
 
-.nav li a,
-.nav ul.menu li a {
+#menu-bar li a,
+#menu-bar ul.menu li a {
   color: #544E49;
   font-size: 12px;
   text-transform: uppercase;
   font-family: Helvetica,Arial,sans-serif;
+  overflow:hidden;
+  padding:0 12%;
 }
 
-
-.nav ul.menu li.active-trail {
+#menu-bar ul.menu li.active-trail {
   background:#544e49;
 }
 
-.nav ul.menu li.active-trail a {
+#menu-bar ul.menu li.active-trail a {
   color:#FFF;
 }
 
-.nav ul.menu li a:hover {
+#menu-bar ul.menu li a:hover {
   text-decoration: none;
   color:#FFF;
   background:#96938C;
-}
-
-.nav ul.menu li.venue {
-  border-right:none;  
-}
-
-.nav ul.menu li a {
-  overflow:hidden;
-}
-
-
-.nav ul.menu li.course-overview a {
-  padding:0 20%;
-}
-
-.nav ul.menu li.schedule,
-.nav ul.menu li.faculty {
-  width:13%;
-}
-
-.nav ul.menu li.schedule a {
-  padding:0 20%;
-}
-
-.nav ul.menu li.faculty a {
-  padding:0 33%;
-}
-
-.nav ul.menu li.accreditation a {
-  padding:0 23%;
-}
-
-.nav ul.menu li.venue a {
-  /*padding:0 66px;*/
-  padding:0 30%;
-}
-
-.nav ul.menu li.registration-information {
-  float:right;
-  width:24%;
-}
-
-.nav ul.menu li.registration-information a {
-  border-right:none;
-  background:#830808;
-  color:#FFF;
-  padding:0 20%;
-}
-
-.nav ul.menu li.registration-information:hover a {
-  background:#500505;
 }
 
 /* responsive menu overrides */
@@ -203,6 +152,32 @@ nav.menu-wrapper {
   line-height: 16px;  
   font-weight:normal;
 }
+
+.region-header ul.menu {
+  width:300px;
+  float:right;
+}
+
+.region-header ul.menu li {
+  list-style:none;
+  float:left;
+}
+
+.region-header ul.menu li a {
+  padding:0 10px;
+}
+
+.region-header ul.menu li.about-us a {
+  border-left:1px solid #CCC;
+  border-right:1px solid #CCC;
+}
+
+#branding {
+  float:left;
+  width:350px;
+}
+
+
 
 /* sidebar right */
 
@@ -269,18 +244,18 @@ nav.menu-wrapper {
 }
 
 #main-content {
-  background: #EEECE1;
+  /*background: #EEECE1;*/
   width: 100%;
-  box-shadow: 0 0 3px #999;  
+  /*box-shadow: 0 0 3px #999;  */
   margin: 0 0 2.7% 0;
   padding:4px 10px;
   box-sizing:border-box;
 }
 
-#columns {
+/*#columns {
   margin-top:30px;
 }
-
+*/
 /* registration information styles */
 .page-registration-information table tr {
   background-color:#FFF;

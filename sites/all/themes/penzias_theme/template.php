@@ -50,7 +50,7 @@ function adaptivetheme_subtheme_process_html(&$vars) {
 // */
 
 /* preprocess html */
-function microsite_base_theme_preprocess_html(&$variables) {
+function penzias_theme_preprocess_html(&$variables) {
   $path_array = explode('/',request_path());
   $first_path_item = reset($path_array);
   $last_path_item = end($path_array);
@@ -108,7 +108,7 @@ function adaptivetheme_subtheme_process_block(&$vars) {
 }
 // */
 
-function microsite_base_theme_menu_link(array $variables) {
+function penzias_theme_menu_link(array $variables) {
   $helper_class = str_replace(' ', '-', strtolower($variables['element']['#title']));
   $variables['element']['#attributes']['class'][] .= $helper_class;
 
