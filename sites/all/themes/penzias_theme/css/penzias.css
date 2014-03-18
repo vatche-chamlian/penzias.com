@@ -19,7 +19,7 @@ a:hover {
   /*width:1132px;*/
   margin:0 auto;
   position: relative;
-  /*max-width: 1132px;*/
+  max-width: 1023px;
   box-shadow: 0 0 6px #999;
   background: #FFF;
   overflow: hidden;
@@ -54,42 +54,48 @@ nav.menu-wrapper {
 }
 
 #menu-bar .menu {
-  background:#ddd9c2;
+  background:#D2CDC7;
 }
 
 #menu-bar .menu li {
-  background:#ddd9c2;
+  background:#D2CDC7;
   border-right:1px solid #FFF;
-  line-height: 40px;
+  /*line-height: 50px;
+  height:50px;*/
   text-align:center;
+  width:24.9%;
 }
 
 #menu-bar .menu li.last {
   border-right:none;
 }
 
-#menu-bar li a,
 #menu-bar ul.menu li a {
   color: #544E49;
   font-size: 12px;
   text-transform: uppercase;
   font-family: Helvetica,Arial,sans-serif;
   overflow:hidden;
-  padding:0 12%;
-}
-
-#menu-bar ul.menu li.active-trail {
-  background:#544e49;
+  padding:20px 20px 10px;
+  display:block;
+  background:url('../images/for.png');
+  background-position:center 9px;
+  background-repeat: no-repeat;
 }
 
 #menu-bar ul.menu li.active-trail a {
+  background:#544e49 url('../images/for-over-1.png');
   color:#FFF;
+  background-position:center 9px;
+  background-repeat: no-repeat;
 }
 
 #menu-bar ul.menu li a:hover {
   text-decoration: none;
   color:#FFF;
-  background:#96938C;
+  background:#96938C url('../images/for-over-1.png');
+  background-position:center 9px;
+  background-repeat: no-repeat;
 }
 
 /* responsive menu overrides */
@@ -104,53 +110,8 @@ nav.menu-wrapper {
   padding:10px;
 }
 
-.block-course-info {
+.region-header .block {
   margin-bottom:0;
-}
-
-.header-block {
-  padding-right:224px;
-  background-image: url('/sites/all/themes/microsite_base_theme/images/harvard-medical-school-logo.png');
-  background-repeat: no-repeat;
-  background-position: right center;
-}
-
-.header-block p {
-  margin-bottom:0;
-  font-weight: bold;  
-}
-
-.header-block p.course-prefix,
-.header-block p.course-name a {
-  color: #A51C30;
-  font-family: Georgia,"Times New Roman",Times,serif;
-}
-
-.header-block p.course-prefix{
-  font-size:20px;
-  line-height:20px;
-}
-
-.header-block p.course-name a {
-  font-size:36px;
-  line-height:48px;
-}
-
-.header-block .course-venue-date,
-.header-block .course-city-state {
-  color: #544e49;
-  margin-bottom: 6px;
-}
-
-.header-block .course-venue-date {
-  font-size: 25px;
-  line-height: 1.62em;  
-}
-
-.header-block .course-city-state {
-  font-size: 18px;
-  line-height: 16px;  
-  font-weight:normal;
 }
 
 .region-header ul.menu {
@@ -177,72 +138,6 @@ nav.menu-wrapper {
   width:350px;
 }
 
-
-
-/* sidebar right */
-
-.brochure-download,
-.contact-link {
-  background-repeat:no-repeat;
-}
-
-.brochure-download {
-  background-image: url('../images/adobe-reader.png');
-}
-
-.contact-link {
-  background-image: url('../images/at-symbol.png');
-  background-position: 10px 2px;
-  margin-top:10px;
-}
-
-.brochure-download a,
-.contact-link a {
-  display:block;
-  padding:15px 0 15px 60px;
-}
-
-/* sidebar styles */
-.sidebar h3,
-.sidebar h2,
-.sidebar .earlybird {
-  background: #8C8179;
-  color: #FFF;
-  padding: 0 10px;
-  font-size: 1.2em;
-  margin:0 0 5px 0;
-  font-weight:bold;
-}
-
-.sidebar .earlybird {
-  text-align: center;
-}
-
-.sidebar .earlybird a,
-.sidebar .earlybird a:hover {
-  color:#FFF;
-  text-decoration: none;
-}
-
-.sidebar .earlybird.earlybird-register {
-  font-size: 1.1em;
-  padding: 2px 10px;
-}
-
-.sidebar .views-field-field-first-name {
-  font-weight:bold;
-  font-size:12px;
-}
-
-.sidebar .views-field-field-bio,
-.sidebar ul li {
-  font-size:12px;
-}
-
-.sidebar .views-row {
-  margin-bottom:10px;
-}
-
 #main-content {
   /*background: #EEECE1;*/
   width: 100%;
@@ -252,33 +147,72 @@ nav.menu-wrapper {
   box-sizing:border-box;
 }
 
-/*#columns {
-  margin-top:30px;
-}
-*/
-/* registration information styles */
-.page-registration-information table tr {
-  background-color:#FFF;
+/* tertiary region */
+.region-tertiary-content .block {
+  width:340px;
+  float:left;
 }
 
-.page-registration-information table tr h2 {
+.region-tertiary-content .block .content > div {
+  width:170px;
+  float:left;
+}
+
+.region-tertiary-content .block .block-inner {
+  line-height:10px;
+  box-shadow:0px 2px 5px #666;
+}
+
+.region-tertiary-content .block p {
   margin:0;
-  font-size:12px;
+  display:block;
+  float:left;
+  line-height:14px;
+  text-transform: uppercase;
+  width:150px;
+  text-align:center;
 }
 
-.view-faculty h3 {
+.region-tertiary-content .block p a {
+  color:#FFF;
+  display:block;
+  padding:47px 0;
+}
+
+.region-tertiary-content .what-to-expect .block-inner {
+  background: #B6C9E2;
+}
+
+.service-areas h2,
+.region-tertiary-content .clients .block-inner {
+  background: #8D1944;
+}
+
+.service-areas h2 {
   text-align: center;
-  border-bottom: 1px solid #CCC;
-  line-height: 28px;
-  margin-top:20px;
-  margin-bottom: 7px;
-  color: #544e49;
-  font-size: 25px;
+  color:#FFF;
 }
 
-.view-faculty .item-list ul li {
-  margin:4px 0 3px 0;
-  list-style: none;
+.service-areas .view-content ul {
+  padding:10px 0 0 0;
+  background:#B6C9E2;
+}
+
+.service-areas .view-content ul li {
+  list-style:none;
+  text-align: center;
+  margin:0;
+  padding:20px 33px;
+}
+
+.service-areas .view-content ul li a {
+  color:#666;
+  font-size:20px;
+  font-weight:bold;
+}
+
+.region-tertiary-content .contact-us .block-inner {
+  background: #CEC8A7;
 }
 
 /* footer styles */
